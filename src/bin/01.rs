@@ -55,27 +55,30 @@ impl Elf {
 
 #[cfg(test)]
 mod test {
+    use indoc::*;
+
     use crate::*;
 
     #[test]
     fn test() {
-        let input = r#"1000
-2000
-3000
+        let input = indoc! {"
+            1000
+            2000
+            3000
 
-4000
+            4000
 
-5000
-6000
+            5000
+            6000
 
-7000
-8000
-9000
+            7000
+            8000
+            9000
 
-10000
-"#;
+            10000
+        "};
 
-        println!("Part 1: {:?}", part1(input));
-        println!("Part 2: {:?}", part2(input));
+        assert_eq!(part1(input), Some(24000));
+        assert_eq!(part2(input), 45000);
     }
 }
